@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\DM\\todos-api-6\\Todos.Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AB63D590-D2B6-49FF-BE62-C523DD27AD0C}|Todos.Api.csproj|c:\\dm\\todos-api-6\\todos.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{AB63D590-D2B6-49FF-BE62-C523DD27AD0C}|Todos.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{B4FF6396-87F8-4399-B152-98DFDC32AA10}|Todos.Api.csproj|c:\\dm\\todos-api-6\\todos.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B4FF6396-87F8-4399-B152-98DFDC32AA10}|Todos.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -134,7 +134,7 @@
               "RelativeToolTip": "Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-29T08:58:36.349Z",
+              "WhenOpened": "2024-11-29T09:20:50.511Z",
               "EditorCaption": ""
             }
           ]
