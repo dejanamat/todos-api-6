@@ -7,6 +7,7 @@ on:
 
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  SERVICE_ARN: "arn:aws:apprunner:eu-central-1:266735817182:service/todos-api-7/f8e2d59f6ced4e6b82d6319f3950571d"
 
 jobs:
   build-and-push:
@@ -34,15 +35,20 @@ jobs:
       - name: Build Docker image
         working-directory: ./Todos.Api
         run: |
-          docker build -t todos-api-5 .
+          docker build -t todos-api .
 
       - name: Tag Docker image
         run: |
-          docker tag todos-api-5:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:latest
-          docker tag todos-api-5:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:${{ github.sha }}
+          docker tag todos-api:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:latest
+          docker tag todos-api:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:${{ github.sha }}
 
       # Step 5: Push Docker image to AWS ECR
       - name: Push Docker image
         run: |
-          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:latest
-          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:${{ github.sha }}
+          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:latest
+          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:${{ github.sha }}
+
+      # Step 6: Deploy the application to AWS App Runner
+      - name: Deploy to AWS App Runner
+        run: |
+          aws apprunner start-deployment --service-arn ${{ env.SERVICE_ARN }}
