@@ -34,15 +34,15 @@ jobs:
       - name: Build Docker image
         working-directory: ./Todos.Api
         run: |
-          docker build -t todos-api .
+          docker build -t todos-api-5 .
 
       - name: Tag Docker image
         run: |
-          docker tag todos-api:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:latest
-          docker tag todos-api:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:${{ github.sha }}
+          docker tag todos-api-5:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:latest
+          docker tag todos-api-5:latest ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:${{ github.sha }}
 
       # Step 5: Push Docker image to AWS ECR
       - name: Push Docker image
         run: |
-          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:latest
-          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api:${{ github.sha }}
+          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:latest
+          docker push ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.eu-central-1.amazonaws.com/todos-api-5:${{ github.sha }}
